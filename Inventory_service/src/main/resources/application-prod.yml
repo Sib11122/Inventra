@@ -1,0 +1,25 @@
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      pool-name: InventoryHikariPool
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 900000
+      auto-commit: false
+
+  jpa:
+    hibernate:
+      ddl-auto: validate   # NEVER update/create in prod
+    show-sql: false
+
+logging:
+  level:
+    root: INFO

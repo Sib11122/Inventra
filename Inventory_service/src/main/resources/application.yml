@@ -1,0 +1,21 @@
+server:
+  port: 8081   # inventory-service runs separately from product-service
+
+spring:
+  application:
+    name: inventory-service
+
+  profiles:
+    active: dev
+
+  jpa:
+    open-in-view: false   # IMPORTANT (prevents LazyInitialization issues)
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+logging:
+  level:
+    root: INFO
